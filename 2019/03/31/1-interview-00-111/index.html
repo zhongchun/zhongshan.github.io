@@ -280,7 +280,7 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/images/book.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/images/code-2.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -461,12 +461,12 @@
 <ol>
 <li>只拿 10 填充，即有 1 种方式；</li>
 <li>只拿 110 填充，即有 1 种方式；</li>
-<li>拿 3 个 10 和 4 个 110 做排列组合，即有 <code>$C^3_7 = 35$</code> 种方式；</li>
-<li>拿 6 个 10 和 2 个 110 做排列组合，即有 <code>$C^2_8 = 28$</code> 种方式</li>
+<li>拿 3 个 10 和 4 个 110 做排列组合，即有 $C^3_7 = 35$ 种方式；</li>
+<li>拿 6 个 10 和 2 个 110 做排列组合，即有 $C^2_8 = 28$ 种方式</li>
 </ol>
-<p>总计：<code>$1 + 1 + 35 + 28 = 65$</code> 种</p>
+<p>总计：$1 + 1 + 35 + 28 = 65$ 种</p>
 <h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><p>根据题目，除了第一位，后面的18位，只能由 10 或 110 两种连续数字串的组成。那么，当前的组数正好等于往前2位和往前3位两种组数的和。于是，递归公式如下：</p>
-<p><code>$f(x+3) = f(x+1) + f(x)$</code></p>
+<p>$f(x+3) = f(x+1) + f(x)$</p>
 <p>利用从低往上的计算方式：</p>
 <pre><code>f(1) = 0;
 f(2) = 1;
@@ -678,7 +678,7 @@ f(18) = 65;
                 <a href="/2019/03/31/1-interview-00-111/">
                     <div class="card-image">
                         
-                        <img src="/images/book.jpg" class="responsive-img" alt="不连续00和111问题">
+                        <img src="/images/code-2.jpg" class="responsive-img" alt="不连续00和111问题">
                         
                         <span class="card-title">不连续00和111问题</span>
                     </div>
