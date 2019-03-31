@@ -1,0 +1,1132 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Computer Science Books, Machine Learning, Big Data">
+    <meta name="description" content="Books
+Introduction to Algorithms(3rd Edition) 算法导论(第三版)
+ 作者: Thomas H.Cormen / Charles E.Leiserson / Ronald L.Rivest / C">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Computer Science Books | BerMaker</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">BerMaker</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">BerMaker</div>
+        <div class="logo-desc">
+            
+            If not now, when? If not you, who?
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhongchun" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/zhongchun" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:495571751@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhongchun" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/images/book.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Computer Science Books
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Notes/" target="_blank">
+                                <span class="chip bg-color">Notes</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Book/" class="post-category" target="_blank">
+                                Book
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-10-07
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        1.3k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        5 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h2><ol>
+<li><p>Introduction to Algorithms(3rd Edition) 算法导论(第三版)</p>
+<pre><code> 作者: Thomas H.Cormen / Charles E.Leiserson / Ronald L.Rivest / Clifford Stein
+ 出版社: 机械工业出版社
+ 原作名: Introduction to Algorithms, Third Edition
+ 译者: 殷建平 / 徐云 / 王刚 / 刘晓光 / 苏明 / 邹恒明 / 王宏志
+ 出版年: 2012-12
+ 页数: 780
+ 定价: 128.00元
+ 装帧: 平装
+ 丛书: 计算机科学丛书
+ ISBN: 9787111407010
+</code></pre></li>
+<li><p>Computer Systems: A Programmer’s Perspective 深入理解计算机系统</p>
+<pre><code> 作者: Randal E.Bryant / David O&#39;Hallaron
+ 出版社: 机械工业出版社
+ 原作名: Computer Systems: A Programmer&#39;s Perspective (3rd Edition)
+ 译者: 龚奕利 / 贺莲
+ 出版年: 2016-11
+ 页数: 737
+ 定价: 139.00元
+ 装帧: 平装
+ 丛书: 计算机科学丛书
+ ISBN: 9787111544937
+</code></pre></li>
+<li><p>The Art of Computer Programming 计算机程序设计艺术</p>
+<p> 第一卷：基本算法</p>
+<pre><code> 作者: [美] 唐纳德·E. 克努特
+ 出版社: 国防工业出版社
+ 副标题: 基本算法
+ 译者: 苏运霖
+ 出版年: 2002-9
+ 页数: 626
+ 定价: 98.00元
+ 装帧: 精装16开
+ 丛书: 计算机程序设计艺术（中文版）
+ ISBN: 9787118027990
+</code></pre><p> 第二卷：半数值算法</p>
+<p> 第三卷：排序与查找</p>
+<p> 第四卷：组合算法</p>
+</li>
+</ol>
+<pre><code>Completed
+    Volume 1 – Fundamental Algorithms
+    Volume 2 – Seminumerical Algorithms
+    Volume 3 – Sorting and Searching
+    Volume 4A – Combinatorial Algorithms, Part 1
+Planned
+    Volume 4B, 4C, 4D – Combinatorial Algorithms
+    Volume 5 – Syntactic Algorithms
+    Volume 6 – The Theory of Context-free Languages[7]
+    Volume 7 – Compiler Techniques
+</code></pre><p><a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming" target="_blank" rel="noopener">TAOCP wikipedia</a></p>
+<ol start="4">
+<li><p>Structure and Interpretation of Computer Programs 计算机程序的构造和解释</p>
+<pre><code> 作者: Harold Abelson / Gerald Jay Sussman / Julie Sussman
+ 出版社: 机械工业出版社
+ 副标题: 原书第2版
+ 原作名: Structure and Interpretation of Computer Programs
+ 译者: 裘宗燕
+ 出版年: 2004-2
+ 页数: 473
+ 定价: 45.00元
+ 装帧: 平装
+ 丛书: 计算机科学丛书
+ ISBN: 9787111135104
+</code></pre></li>
+<li><p>TCP/IP详解</p>
+<pre><code> 作者:  [美] W·Richard Stevens
+ 出版社: 机械工业出版社
+ 原作名: TCP/IP ILLustrated Volume 1: The Protocols
+ 译者: 范建华
+ 出版年: 2000-4-1
+ 页数: 423
+ 定价: 45.00元
+ 装帧: 平装
+ 丛书: TCP/IP详解（中文版）
+ ISBN: 9787111075660
+</code></pre></li>
+<li><p>计算机网络（第6版）</p>
+<pre><code> 作者: [美] James F.Kurose / [美] Keith W.Ross
+ 出版社: 机械工业出版社
+ 副标题: 自顶向下方法
+ 原作名: Computer Networking：A Top-Down Approach，Sixth Edition
+ 译者: 陈鸣
+ 出版年: 2014-10
+ 页数: 548
+ 定价: 79.00元
+ 装帧: 平装
+ 丛书: 计算机科学丛书
+ ISBN: 9787111453789
+</code></pre></li>
+<li><p>计算机体系结构</p>
+<pre><code> 作者: [美] John L. Hennessy / [美] David A. Patterson
+ 出版社: 人民邮电出版社
+ 副标题: 量化研究方法（第5版）
+ 原作名: Computer Architecture:A Quantitative Approach,Fifth Edition
+ 译者: 贾洪峰
+ 出版年: 2012-12
+ 页数: 595
+ 定价: 109.00元
+ 装帧: 平装
+ 丛书: 图灵计算机科学丛书
+ ISBN: 9787115297655
+</code></pre></li>
+<li><p>现代操作系统（第3版）</p>
+<pre><code> 作者:  [美] Andrew S·Tanenbaum
+ 出版社: 机械工业出版社
+ 原作名: Modern Operating Systems
+ 译者: 陈向群 / 马洪兵
+ 出版年: 2009-7
+ 页数: 582
+ 定价: 75.00元
+ 装帧: 平装
+ 丛书: 计算机科学丛书
+ ISBN: 9787111255444
+</code></pre></li>
+<li><p>数据库系统概念：第五版</p>
+<pre><code> 作者: Abraham Silberschatz / Henry F. Korth / S. Sudarshan
+ 出版社: 机械工业
+ 副标题: 第五版
+ 原作名: Datebase System Concepts(Fifth Edition)
+ 译者: 杨冬青 / 马秀莉 / 唐世渭
+ 出版年: 2006-10-01
+ 页数: 775
+ 定价: 69.50元
+ 装帧: 平装
+ 丛书: 计算机科学丛书
+ ISBN: 9787111196877
+</code></pre></li>
+<li><p>设计模式</p>
+<pre><code>作者: [美] Erich Gamma / Richard Helm / Ralph Johnson / John Vlissides
+出版社: 机械工业出版社
+副标题: 可复用面向对象软件的基础
+原作名: Design Patterns: Elements of Reusable Object-Oriented Software
+译者: 李英军 / 马晓星 / 蔡敏 / 刘建中 等
+出版年: 2000-9
+页数: 254
+定价: 35.00元
+装帧: 平装
+丛书: 计算机科学丛书
+ISBN: 9787111075752
+</code></pre></li>
+<li><p>编译原理</p>
+<pre><code>作者: Alfred V. Aho / Monica S.Lam / Ravi Sethi / Jeffrey D. Ullman
+出版社: 机械工业出版社
+副标题: 原理、技术与工具
+译者: 赵建华 / 郑滔 / 戴新宇
+出版年: 2008年12月
+页数: 631
+定价: 89.00元
+装帧: 平装
+丛书: 计算机科学丛书
+ISBN: 9787111251217
+</code></pre></li>
+<li><p>C程序设计语言</p>
+<pre><code>作者: （美）Brian W. Kernighan / （美）Dennis M. Ritchie
+出版社: 机械工业出版社
+副标题: 第 2 版·新版
+原作名: The C Programming Language
+译者: 徐宝文 / 李志译 / 尤晋元审校
+出版年: 2004-1
+页数: 258
+定价: 30.00元
+装帧: 平装
+丛书: 计算机科学丛书
+ISBN: 9787111128069
+</code></pre></li>
+</ol>
+<ol start="13">
+<li><p>C++ Primer</p>
+<pre><code>作者: Stanley B.Lippman / Josée LaJoie / Barbara E.Moo
+出版社: 人民邮电出版社
+原作名: C++ Primer, 4th Edition
+译者: 李师贤 / 蒋爱军 / 梅晓勇 / 林瑛
+出版年: 2006
+页数: 745
+定价: 99.00元
+装帧: 16开
+丛书: 图灵程序设计丛书
+ISBN: 9787115145543
+</code></pre></li>
+<li><p>Effective C++</p>
+<pre><code>作者:  [美] Scott Meyers
+出版社: 电子工业出版社
+副标题: 改善程序与设计的55个具体做法
+原作名: Effective C++: 55 Specific Ways to Improve Your Programs and Designs
+译者:  侯捷
+出版年: 2006-7
+页数: 297
+定价: 58.00元
+装帧: 简裝本
+ISBN: 9787121029097
+</code></pre></li>
+<li><p>Effective STL</p>
+<pre><code>作者:  [美] Scott Meyers
+出版社: 清华大学出版社
+副标题: 50条有效使用STL的经验
+译者: 潘爱民 / 陈铭 / 邹开红
+出版年: 2006-1
+页数: 208
+定价: 30.00元
+装帧: 平装
+ISBN: 9787302126959
+</code></pre></li>
+</ol>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="https://www.cnblogs.com/broglie/p/5554345.html" target="_blank" rel="noopener">学习计算机需要看哪些经典书？</a></li>
+<li><a href="https://www.zhihu.com/question/273973062/answer/372714422" target="_blank" rel="noopener">计算机必读经典书籍</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25983004" target="_blank" rel="noopener">计算机经典书籍汇总</a></li>
+</ol>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="http://yuzhongchun.com" class="b-link-green">BerMaker</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/10/07/0-cs-books/" class="b-link-green">Computer Science Books</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '21ea087c6104923ba888',
+        clientSecret: '560f45f0aefc21d726f86ee331bb04fc8660bcf6',
+        repo: 'gitalk',
+        owner: 'zhongchun',
+        admin: "zhongchun",
+        id: '2018-10-07T20-18-36',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/10/12/1-logstash-introduction/">
+                    <div class="card-image">
+                        
+                        <img src="/images/axe.jpg" class="responsive-img" alt="Logstash (-) 简介">
+                        
+                        <span class="card-title">Logstash (-) 简介</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">IntroductionLogstash is an open source data collection engine with real-time pipelining capabilities. Logstash can dynam</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-12
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/BigData/" class="post-category" target="_blank">
+                                    BigData
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Tools/" target="_blank">
+                        <span class="chip bg-color">Tools</span>
+                    </a>
+                    
+                    <a href="/tags/ELK/" target="_blank">
+                        <span class="chip bg-color">ELK</span>
+                    </a>
+                    
+                    <a href="/tags/Logstash/" target="_blank">
+                        <span class="chip bg-color">Logstash</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/10/07/0-cs-books/">
+                    <div class="card-image">
+                        
+                        <img src="/images/book.jpg" class="responsive-img" alt="Computer Science Books">
+                        
+                        <span class="card-title">Computer Science Books</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">Books
+Introduction to Algorithms(3rd Edition) 算法导论(第三版)
+ 作者: Thomas H.Cormen / Charles E.Leiserson / Ronald L.Rivest / C</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Book/" class="post-category" target="_blank">
+                                    Book
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Notes/" target="_blank">
+                        <span class="chip bg-color">Notes</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: BerMaker<br />'
+            + '作者: BerMaker<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">77.3k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhongchun" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:495571751@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

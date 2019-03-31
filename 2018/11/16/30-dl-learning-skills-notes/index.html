@@ -1,0 +1,1101 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Notes-深度学习入门之与学习相关的技巧, Machine Learning, Big Data">
+    <meta name="description" content="本章将介绍神经网络的学习中的一些重要观点，主题涉及寻找最优权重参数的最优化方法、权重参数的初始值、超参数的设定方法等。此外，为了应对过拟合，本章还将介绍权值衰减、Dropout 等正则化方法，并进行实现。最后将对近年来众多研究中使用的 Ba">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Notes-深度学习入门之与学习相关的技巧 | BerMaker</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">BerMaker</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">BerMaker</div>
+        <div class="logo-desc">
+            
+            If not now, when? If not you, who?
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/zhongchun" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link">
+    <a href="https://github.com/zhongchun" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:495571751@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/zhongchun" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/images/learning-skills.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Notes-深度学习入门之与学习相关的技巧
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1,
+    #articleContent h2,
+    #articleContent h3,
+    #articleContent h4,
+    #articleContent h5,
+    #articleContent h6 {
+        padding-top: 76px;
+        margin-top: -76px;
+    }
+
+    #articleContent h1 {
+        line-height: 3.5rem;
+    }
+
+    #articleContent h2 {
+        line-height: 3.2rem;
+    }
+
+    #articleContent h3 {
+        line-height: 2.8rem;
+    }
+
+    #articleContent h4 {
+        line-height: 2.5rem;
+    }
+
+    #articleContent h5 {
+        line-height: 2.2rem;
+    }
+
+    #articleContent h6 {
+        line-height: 1.9rem;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+</style>
+<div class="row">
+    <div class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Notes/" target="_blank">
+                                <span class="chip bg-color">Notes</span>
+                            </a>
+                        
+                            <a href="/tags/Deep-Learning/" target="_blank">
+                                <span class="chip bg-color">Deep Learning</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Deep-Learning/" class="post-category" target="_blank">
+                                Deep Learning
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2018-11-16
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        8.5k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        30 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>本章将介绍神经网络的学习中的一些重要观点，主题涉及<strong>寻找最优权重参数的最优化方法</strong>、<strong>权重参数的初始值</strong>、<strong>超参数的设定方法</strong>等。此外，为了应对过拟合，本章还将介绍权值衰减、Dropout 等正则化方法，并进行实现。最后将对近年来众多研究中使用的 Batch Normalization 方法进行简单的介绍。使用本章介绍的方法，可以高效地进行神经网络（深度学习）的学习，提高识别精度。让我们一起往下看吧！</p>
+<h2 id="参数的更新"><a href="#参数的更新" class="headerlink" title="参数的更新"></a>参数的更新</h2><p>神经网络的学习的目的是找到使损失函数的值尽可能小的参数。这是寻找最优参数的问题，解决这个问题的过程称为<strong>最优化</strong>（optimization）。遗憾的是，神经网络的最优化问题非常难。这是因为参数空间非常复杂，无法轻易找到最优解（无法使用那种通过解数学式一下子就求得最小值的方法）。而且，在深度神经网络中，参数的数量非常庞大，导致最优化问题更加复杂。</p>
+<p>在前几章中，为了找到最优参数，我们将参数的梯度（导数）作为了线索。使用参数的梯度，沿梯度方向更新参数，并重复这个步骤多次，从而逐渐靠近最优参数，这个过程称为随机梯度下降法（stochastic gradient descent），简称 SGD。SGD 是一个简单的方法，不过比起胡乱地搜索参数空间，也算是“聪明”的方法。但是，根据不同的问题，也存在比 SGD 更加聪明的方法。本节我们将指出 SGD 的缺点，并介绍 SGD 以外的其他最优化方法。</p>
+<h3 id="探险家的故事"><a href="#探险家的故事" class="headerlink" title="探险家的故事"></a>探险家的故事</h3><p>进入正题前，我们先打一个比方，来说明关于最优化我们所处的状况。</p>
+<pre class=" language-text"><code class="language-text">有一个性情古怪的探险家。他在广袤的干旱地带旅行，坚持寻找幽深的山谷。他的目标是要到达最深的谷底（他称之为“至深之地”）。这也是他旅行的目的。并且，他给自己制定了两个严格的“规定”：一个是不看地图；另一个是把眼睛蒙上。因此，他并不知道最深的谷底在这个广袤的大地的何处，而且什么也看不见。在这么严苛的条件下，这位探险家如何前往“至深之地”呢？他要如何迈步，才能迅速找到“至深之地”呢？
+</code></pre>
+<p>寻找最优参数时，我们所处的状况和这位探险家一样，是一个漆黑的世界。我们必须在没有地图、不能睁眼的情况下，在广袤、复杂的地形中寻找“至深之地”。</p>
+<p>在这么困难的状况下，地面的坡度显得尤为重要。探险家虽然看不到周围的情况，但是能够知道当前所在位置的坡度（通过脚底感受地面的倾斜状况）。于是，朝着当前所在位置的坡度最大的方向前进，就是 SGD 的策略。勇敢的探险家心里可能想着只要重复这一策略，总有一天可以到达“至深之地”。</p>
+<h3 id="SGD"><a href="#SGD" class="headerlink" title="SGD"></a>SGD</h3><p>用数学式可以将 SGD 写成如下的式：</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB4a7ab338358cd58a1c3a8536119076b0?method=download&amp;shareKey=8edfdc9a125f9cd9d011c92b4857b9ac" alt=""></p>
+<p>现在，我们将 SGD 实现为一个 Python 类（为方便后面使用，我们将其实现为一个名为 <code>SGD</code> 的类）。</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">SGD</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> lr<span class="token operator">=</span><span class="token number">0.01</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>lr <span class="token operator">=</span> lr
+
+    <span class="token keyword">def</span> <span class="token function">update</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> params<span class="token punctuation">,</span> grads<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">for</span> key <span class="token keyword">in</span> params<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            params<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">-=</span> self<span class="token punctuation">.</span>lr <span class="token operator">*</span> grads<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+</code></pre>
+<p>这里，进行初始化时的参数 <code>lr</code> 表示 learning rate（学习率）。这个学习率会保存为实例变量。此外，代码段中还定义了 <code>update(params, grads)</code> 方法，这个方法在 SGD 中会被反复调用。参数 <code>params</code> 和 <code>grads</code>（与之前的神经网络的实现一样）是字典型变量，按 <code>params[&#39;W1&#39;]</code>、<code>grads[&#39;W1&#39;]</code> 的形式，分别保存了权重参数和它们的梯度。</p>
+<p>使用这个 <code>SGD</code> 类，可以按如下方式进行神经网络的参数的更新（下面的代码是不能实际运行的伪代码）。</p>
+<pre class=" language-python"><code class="language-python">network <span class="token operator">=</span> TwoLayerNet<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span>
+optimizer <span class="token operator">=</span> SGD<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    x_batch<span class="token punctuation">,</span> t_batch <span class="token operator">=</span> get_mini_batch<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># mini-batch</span>
+    grads <span class="token operator">=</span> network<span class="token punctuation">.</span>gradient<span class="token punctuation">(</span>x_batch<span class="token punctuation">,</span> t_batch<span class="token punctuation">)</span>
+    params <span class="token operator">=</span> network<span class="token punctuation">.</span>params
+    optimizer<span class="token punctuation">.</span>update<span class="token punctuation">(</span>params<span class="token punctuation">,</span> grads<span class="token punctuation">)</span>
+</code></pre>
+<p>这里首次出现的变量名 <code>optimizer</code> 表示“进行最优化的人”的意思，这里由 SGD 承担这个角色。参数的更新由 <code>optimizer</code> 负责完成。我们在这里需要做的只是将参数和梯度的信息传给 <code>optimizer</code>。</p>
+<p>像这样，通过单独实现进行最优化的类，功能的模块化变得更简单。比如，后面我们马上会实现另一个最优化方法 Momentum，它同样会实现成拥有 <code>update(params, grads)</code> 这个共同方法的形式。这样一来，只需要将 <code>optimizer = SGD()</code> 这一语句换成 <code>optimizer = Momentum()</code>，就可以从 SGD 切换为 Momentum。</p>
+<pre class=" language-text"><code class="language-text">很多深度学习框架都实现了各种最优化方法，并且提供了可以简单切换这些方法的构造。比如 Lasagne 深度学习框架，在 updates.py 这个文件中以函数的形式集中实现了最优化方法。用户可以从中选择自己想用的最优化方法。
+</code></pre>
+<h3 id="SGD-的缺点"><a href="#SGD-的缺点" class="headerlink" title="SGD 的缺点"></a>SGD 的缺点</h3><p>虽然 SGD 简单，并且容易实现，但是在解决某些问题时可能没有效率。这里，在指出 SGD 的缺点之际，我们来思考一下求下面这个函数的最小值的问题。</p>
+<p>$f(x,y)=\frac{1}{20}x^2+y^2\quad\quad\quad\quad\quad$ (6.2)</p>
+<p>SGD 的缺点是，如果函数的形状非均向（anisotropic），比如呈延伸状，搜索的路径就会非常低效。</p>
+<p>SGD 低效的根本原因是，<strong>梯度的方向并没有指向最小值的方向</strong>。</p>
+<p>比如下图效果：<br><img src="https://note.youdao.com/yws/api/personal/file/WEBab4e561f3a958d432c01c883d7f62acb?method=download&amp;shareKey=ce0ff16b29d0006ce53a96719a8312de" alt=""><br><strong>图 6-3</strong> 基于 SGD 的最优化的更新路径：呈“之”字形朝最小值 (0, 0) 移动，效率低</p>
+<h3 id="Momentum"><a href="#Momentum" class="headerlink" title="Momentum"></a>Momentum</h3><p>Momentum 是“动量”的意思，和物理有关。用数学式表示 Momentum 方法，如下所示：</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB4cc83eabb5a5764ab8cb7a574e61e04d?method=download&amp;shareKey=4a9a3b4e0b54e0a9bf995b4d1386c6ee" alt=""></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB3ce41e644db7900e3ef31c68a9207a12?method=download&amp;shareKey=6aed247dd3199388db6eb8d690ff5183" alt=""></p>
+<p>和前面的 SGD 一样，W 表示要更新的权重参数</p>
+<p>效果：</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB98f63d86b2a27a31e051a123311478a0?method=download&amp;shareKey=1b6263efef55978d51d05753c0600351" alt=""><br><strong>图 6-5</strong>基于 Momentum 的最优化的更新路径</p>
+<h3 id="AdaGrad"><a href="#AdaGrad" class="headerlink" title="AdaGrad"></a>AdaGrad</h3><p>在神经网络的学习中，学习率（数学式中记为 η）的值很重要。学习率过小，会导致学习花费过多时间；反过来，学习率过大，则会导致学习发散而不能正确进行。</p>
+<p>在关于学习率的有效技巧中，有一种被称为学习率衰减（learning rate decay）的方法，即随着学习的进行，使学习率逐渐减小。实际上，一开始“多”学，然后逐渐“少”学的方法，在神经网络的学习中经常被使用。</p>
+<p>逐渐减小学习率的想法，相当于将“全体”参数的学习率值一起降低。而 AdaGrad 进一步发展了这个想法，针对“一个一个”的参数，赋予其“定制”的值。</p>
+<p>AdaGrad 会为参数的每个元素适当地调整学习率，与此同时进行学习（AdaGrad 的 Ada 来自英文单词 Adaptive，即“适当的”的意思）。下面，让我们用数学式表示 AdaGrad 的更新方法。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB4478b29a94033141183b442da904cfc6?method=download&amp;shareKey=c232c455d88eaeea4f263f6e3ca2e92f" alt=""></p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB2d1db5569dd1f888005c57430900c19f?method=download&amp;shareKey=f8d5db483cc8708630ab930132f112e9" alt=""></p>
+<p>和前面的 SGD 一样，W 表示要更新的权重参数。</p>
+<pre class=" language-text"><code class="language-text">AdaGrad 会记录过去所有梯度的平方和。因此，学习越深入，更新的幅度就越小。实际上，如果无止境地学习，更新量就会变为 0，完全不再更新。为了改善这个问题，可以使用 RMSProp[7]方法。RMSProp 方法并不是将过去所有的梯度一视同仁地相加，而是逐渐地遗忘过去的梯度，在做加法运算时将新梯度的信息更多地反映出来。这种操作从专业上讲，称为“指数移动平均”，呈指数函数式地减小过去的梯度的尺度。
+</code></pre>
+<p>现在，让我们试着使用 AdaGrad 解决式（6.2）的最优化问题，结果如图 6-6 所示。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEBf2ab2d990547d9e0b0f1abc6c4755356?method=download&amp;shareKey=76f21ec0251550286eacbb49beef392c" alt=""><br><strong>图6-6</strong> 基于 AdaGrad 的最优化的更新路径</p>
+<p>由图 6-6 的结果可知，函数的取值高效地向着最小值移动。由于 <em>y</em> 轴方向上的梯度较大，因此刚开始变动较大，但是后面会根据这个较大的变动按比例进行调整，减小更新的步伐。因此，<em>y</em> 轴方向上的更新程度被减弱，“之”字形的变动程度有所衰减。</p>
+<h3 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h3><p>Momentum 参照小球在碗中滚动的物理规则进行移动，AdaGrad 为参数的每个元素适当地调整更新步伐。如果将这两个方法融合在一起会怎么样呢？这就是 Adam[8] 方法的基本思路 {1[这里关于 Adam 方法的说明只是一个直观的说明，并不完全正确。详细内容请参考原作者的论文。]}。</p>
+<p>Adam 是 2015 年提出的新方法。它的理论有些复杂，直观地讲，就是融合了 Momentum 和 AdaGrad 的方法。通过组合前面两个方法的优点，有望实现参数空间的高效搜索。此外，进行超参数的“偏置校正”也是 Adam 的特征。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB06a7d141e6779a8fb96c63dd00c7804d?method=download&amp;shareKey=669cf0f7c18da37d04a1b061ad6e13f2" alt=""><br><strong>图 6-7</strong> 基于 Adam 的最优化的更新路径</p>
+<p>基于 Adam 的更新过程就像小球在碗中滚动一样。虽然 Momentun 也有类似的移动，但是相比之下，Adam 的小球左右摇晃的程度有所减轻。这得益于学习的更新程度被适当地调整了。</p>
+<pre class=" language-python"><code class="language-python">Adam 会设置 <span class="token number">3</span> 个超参数。一个是学习率（论文中以 α 出现），另外两个是一次 momentum系数 β<span class="token number">1</span> 和二次 momentum系数 β<span class="token number">2</span>。根据论文，标准的设定值是 β<span class="token number">1</span> 为 <span class="token number">0.9</span>，β<span class="token number">2</span> 为 <span class="token number">0.999</span>。设置了这些值后，大多数情况下都能顺利运行。
+</code></pre>
+<h3 id="使用哪种更新方法"><a href="#使用哪种更新方法" class="headerlink" title="使用哪种更新方法"></a>使用哪种更新方法</h3><p>如图 6-8 所示，根据使用的方法不同，参数更新的路径也不同。只看这个图的话，AdaGrad 似乎是最好的，不过也要注意，结果会根据要解决的问题而变。并且，很显然，超参数（学习率等）的设定值不同，结果也会发生变化。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g09h8pjhl6j30rs0ltwjf.jpg" alt="099"></p>
+<p><strong>图 6-8　最优化方法的比较：SGD、Momentum、AdaGrad、Adam</strong></p>
+<p>上面我们介绍了 SGD、Momentum、AdaGrad、Adam 这 4 种方法，那么用哪种方法好呢？非常遗憾，（目前）并不存在能在所有问题中都表现良好的方法。这 4 种方法各有各的特点，都有各自擅长解决的问题和不擅长解决的问题。</p>
+<p>很多研究中至今仍在使用 SGD。Momentum 和 AdaGrad 也是值得一试的方法。最近，很多研究人员和技术人员都喜欢用 Adam。本书将主要使用 SGD 或者 Adam，读者可以根据自己的喜好多多尝试。</p>
+<h3 id="基于-MNIST-数据集的更新方法"><a href="#基于-MNIST-数据集的更新方法" class="headerlink" title="基于 MNIST 数据集的更新方法"></a>基于 MNIST 数据集的更新方法</h3><p>我们以手写数字识别为例，比较前面介绍的 SGD、Momentum、AdaGrad、Adam 这 4 种方法，并确认不同的方法在学习进展上有多大程度的差异。先来看一下结果，如图 6-9 所示：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g09hcfyiltj30hs0dcjt8.jpg" alt="image-20190217160248492"></p>
+<p><strong>图 6-9　基于 MNIST 数据集的 4 种更新方法的比较：横轴表示学习的迭代次数（iteration），纵轴表示损失函数的值（loss）</strong></p>
+<p>这个实验以一个 5 层神经网络为对象，其中每层有 100 个神经元。激活函数使用的是 ReLU。</p>
+<p>从图 6-9 的结果中可知，与 SGD 相比，其他 3 种方法学习得更快，而且速度基本相同，仔细看的话，AdaGrad 的学习进行得稍微快一点。这个实验需要注意的地方是，实验结果会随学习率等超参数、神经网络的结构（几层深等）的不同而发生变化。不过，<strong>一般而言，与 SGD 相比，其他 3 种方法可以学习得更快，有时最终的识别精度也更高。</strong></p>
+<h2 id="权重的初始值"><a href="#权重的初始值" class="headerlink" title="权重的初始值"></a>权重的初始值</h2><p>在神经网络的学习中，权重的初始值特别重要。实际上，设定什么样的权重初始值，经常关系到神经网络的学习能否成功。</p>
+<h3 id="可以将权重初始值设为0吗"><a href="#可以将权重初始值设为0吗" class="headerlink" title="可以将权重初始值设为0吗"></a>可以将权重初始值设为0吗</h3><p>后面我们会介绍抑制过拟合、提高泛化能力的技巧——权值衰减（weight decay）。简单地说，权值衰减就是一种以减小权重参数的值为目的进行学习的方法。通过减小权重参数的值来抑制过拟合的发生。</p>
+<p>如果想减小权重的值，一开始就将初始值设为较小的值才是正途。实际上，在这之前的权重初始值都是像 <code>0.01 * np.random.randn(10, 100)</code> 这样，使用由高斯分布生成的值乘以 0.01 后得到的值（标准差为 0.01 的高斯分布）。</p>
+<p>如果我们把权重初始值全部设为 0 以减小权重的值，会怎么样呢？从结论来说，将权重初始值设为 0 不是一个好主意。事实上，将权重初始值设为 0 的话，将无法正确进行学习。</p>
+<p>为什么不能将权重初始值设为 0 呢？严格地说，为什么不能将权重初始值设成一样的值呢？这是因为在误差反向传播法中，所有的权重值都会进行相同的更新。比如，在 2 层神经网络中，假设第 1 层和第 2 层的权重为 0。这样一来，正向传播时，因为输入层的权重为 0，所以第 2 层的神经元全部会被传递相同的值。第 2 层的神经元中全部输入相同的值，这意味着反向传播时第 2 层的权重全部都会进行相同的更新（回忆一下“乘法节点的反向传播”的内容）。因此，权重被更新为相同的值，并拥有了对称的值（重复的值）。这使得神经网络拥有许多不同的权重的意义丧失了。为了防止“权重均一化”（严格地讲，是为了瓦解权重的对称结构），必须随机生成初始值。</p>
+<h3 id="隐藏层的激活值得分布"><a href="#隐藏层的激活值得分布" class="headerlink" title="隐藏层的激活值得分布"></a>隐藏层的激活值得分布</h3><p>观察隐藏层的激活值 {2[这里我们将激活函数的输出数据称为“激活值”，但是有的文献中会将在层之间流动的数据也称为“激活值”。]}（激活函数的输出数据）的分布，可以获得很多启发。这里，我们来做一个简单的实验，观察权重初始值是如何影响隐藏层的激活值的分布的。这里要做的实验是，向一个 5 层神经网络（激活函数使用 sigmoid 函数）传入随机生成的输入数据，用直方图绘制各层激活值的数据分布。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g09i40dojjj30rs07ugn1.jpg" alt="101"></p>
+<p><strong>图 6-10　使用标准差为 1 的高斯分布作为权重初始值时的各层激活值的分布</strong></p>
+<p>从图 6-10 可知，各层的激活值呈偏向 0 和 1 的分布。这里使用的 sigmoid 函数是 S 型函数，随着输出不断地靠近 0（或者靠近 1），它的导数的值逐渐接近 0。因此，偏向 0 和 1 的数据分布会造成反向传播中梯度的值不断变小，最后消失。这个问题称为<strong>梯度消失</strong>（gradient vanishing）。层次加深的深度学习中，梯度消失的问题可能会更加严重。</p>
+<p>使用标准差为 0.01 的高斯分布时，各层的激活值的分布如图 6-11 所示。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g09i52h1suj30rs07u3zo.jpg" alt="102"></p>
+<p><strong>图 6-11　使用标准差为 0.01 的高斯分布作为权重初始值时的各层激活值的分布</strong></p>
+<p>这次呈集中在 0.5 附近的分布。因为不像刚才的例子那样偏向 0 和 1，所以不会发生梯度消失的问题。但是，激活值的分布有所偏向，说明在表现力上会有很大问题。为什么这么说呢？因为如果有多个神经元都输出几乎相同的值，那它们就没有存在的意义了。比如，如果 100 个神经元都输出几乎相同的值，那么也可以由 1 个神经元来表达基本相同的事情。因此，激活值在分布上有所偏向会出现“表现力受限”的问题。</p>
+<pre class=" language-text"><code class="language-text">各层的激活值的分布都要求有适当的广度。为什么呢？因为通过在各层间传递多样性的数据，神经网络可以进行高效的学习。反过来，如果传递的是有所偏向的数据，就会出现梯度消失或者“表现力受限”的问题，导致学习可能无法顺利进行。
+</code></pre>
+<p>接着，我们尝试使用 Xavier Glorot 等人的论文 [9] 中推荐的权重初始值（俗称“Xavier 初始值”）。现在，在一般的深度学习框架中，Xavier 初始值已被作为标准使用。比如，Caffe 框架中，通过在设定权重初始值时赋予 xavier 参数，就可以使用 Xavier 初始值。</p>
+<p>Xavier 的论文中，为了使各层的激活值呈现出具有相同广度的分布，推导了合适的权重尺度。推导出的结论是，如果前一层的节点数为 <em>n</em>，则初始值使用标准差为 $\frac{1}{\sqrt{n}}$ 的分布。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g09i9xxoywj30rs0g6n08.jpg" alt="103"></p>
+<p> <strong>6-12　Xavier 初始值：与前一层有 n 个节点连接时，初始值使用标准差为$\frac{1}{\sqrt{n}}$的分布</strong></p>
+<p>使用 Xavier 初始值后，前一层的节点数越多，要设定为目标节点的初始值的权重尺度就越小。</p>
+<p>使用 Xavier 初始值后的结果如图 6-13 所示。从这个结果可知，越是后面的层，图像变得越歪斜，但是呈现了比之前更有广度的分布。因为各层间传递的数据有适当的广度，所以 sigmoid 函数的表现力不受限制，有望进行高效的学习。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g09ibocrj6j30rs07ugmx.jpg" alt="104"></p>
+<p><strong>图 6-13　使用 Xavier 初始值作为权重初始值时的各层激活值的分布</strong></p>
+<pre class=" language-text"><code class="language-text">图 6-13 的分布中，后面的层的分布呈稍微歪斜的形状。如果用 tanh 函数（双曲线函数）代替 sigmoid 函数，这个稍微歪斜的问题就能得到改善。实际上，使用 tanh 函数后，会呈漂亮的吊钟型分布。tanh 函数和 sigmoid 函数同是 S 型曲线函数，但 tanh 函数是关于原点 (0, 0) 对称的 S 型曲线，而 sigmoid 函数是关于 (x, y)=(0, 0.5) 对称的 S 型曲线。众所周知，用作激活函数的函数最好具有关于原点对称的性质。
+</code></pre>
+<h3 id="ReLU-的权重初始值"><a href="#ReLU-的权重初始值" class="headerlink" title="ReLU 的权重初始值"></a>ReLU 的权重初始值</h3><p>Xavier 初始值是以激活函数是线性函数为前提而推导出来的。因为 <code>sigmoid</code> 函数和 <code>tanh</code> 函数左右对称，且中央附近可以视作线性函数，所以适合使用 Xavier 初始值。但当激活函数使用 ReLU 时，一般推荐使用 ReLU 专用的初始值，也就是 Kaiming He 等人推荐的初始值，也称为“He 初始值”[10]。当前一层的节点数为 <em>n</em> 时，He 初始值使用标准差为 $ \sqrt{\frac{2}{n}}$ 的高斯分布。直观上）可以解释为，因为 ReLU 的负值区域的值为 0，为了使它更有广度，所以需要 2 倍的系数。</p>
+<p>现在来看一下激活函数使用 ReLU 时激活值的分布。我们给出了 3 个实验的结果（图 6-14），依次是权重初始值为标准差是 0.01 的高斯分布（下文简写为“std = 0.01”）时、初始值为 Xavier 初始值时、初始值为 ReLU 专用的“He 初始值”时的结果。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g09iendfpfj30rs0w043v.jpg" alt="105"></p>
+<p><strong>图 6-14　激活函数使用 ReLU 时，不同权重初始值的激活值分布的变化</strong></p>
+<p>总结一下，当激活函数使用 ReLU 时，权重初始值使用 He 初始值，当激活函数为 sigmoid 或 tanh 等 S 型曲线函数时，初始值使用 Xavier 初始值。这是目前的最佳实践。</p>
+<h3 id="基于-MINIST-数据集的权重初始值的比较"><a href="#基于-MINIST-数据集的权重初始值的比较" class="headerlink" title="基于 MINIST 数据集的权重初始值的比较"></a>基于 MINIST 数据集的权重初始值的比较</h3><p>下面通过实际的数据，观察不同的权重初始值的赋值方法会在多大程度上影响神经网络的学习。这里，我们基于 std = 0.01、Xavier 初始值、He 初始值进行实验。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g09iv73j6cj30hs0dcwfg.jpg" alt="image-20190217165524883"></p>
+<p><strong>图 6-15　基于 MNIST 数据集的权重初始值的比较：横轴是学习的迭代次数（iterations），纵轴是损失函数的值（loss）</strong></p>
+<p>这个实验中，神经网络有 5 层，每层有 100 个神经元，激活函数使用的是 ReLU。从图 6-15 的结果可知，std = 0.01 时完全无法进行学习。这和刚才观察到的激活值的分布一样，是因为正向传播中传递的值很小（集中在 0 附近的数据）。因此，逆向传播时求到的梯度也很小，权重几乎不进行更新。相反，当权重初始值为 Xavier 初始值和 He 初始值时，学习进行得很顺利。并且，我们发现 He 初始值时的学习进度更快一些。</p>
+<p>综上，在神经网络的学习中，权重初始值非常重要。很多时候权重初始值的设定关系到神经网络的学习能否成功。权重初始值的重要性容易被忽视，而任何事情的开始（初始值）总是关键的，因此在结束本节之际，再次强调一下权重初始值的重要性。</p>
+<h2 id="Batch-Normalization"><a href="#Batch-Normalization" class="headerlink" title="Batch Normalization"></a>Batch Normalization</h2><p>在上一节，我们观察了各层的激活值分布，并从中了解到如果设定了合适的权重初始值，则各层的激活值分布会有适当的广度，从而可以顺利地进行学习。那么，为了使各层拥有适当的广度，“强制性”地调整激活值的分布会怎样呢？实际上，Batch Normalization[11] 方法就是基于这个想法而产生的。</p>
+<h3 id="Batch-Normalization-的算法"><a href="#Batch-Normalization-的算法" class="headerlink" title="Batch Normalization 的算法"></a>Batch Normalization 的算法</h3><p>Batch Normalization（下文简称 Batch Norm）是 2015 年提出的方法。Batch Norm 虽然是一个问世不久的新方法，但已经被很多研究人员和技术人员广泛使用。实际上，看一下机器学习竞赛的结果，就会发现很多通过使用这个方法而获得优异结果的例子。</p>
+<p>为什么 Batch Norm 这么惹人注目呢？因为 Batch Norm 有以下优点。</p>
+<ul>
+<li>可以使学习快速进行（可以增大学习率）。</li>
+<li>不那么依赖初始值（对于初始值不用那么神经质）。</li>
+<li>抑制过拟合（降低 Dropout 等的必要性）。</li>
+</ul>
+<p>考虑到深度学习要花费很多时间，第一个优点令人非常开心。另外，后两点也可以帮我们消除深度学习的学习中的很多烦恼。</p>
+<p>Batch Norm 的思路是调整各层的激活值分布使其拥有适当的广度。为此，要向神经网络中插入对数据分布进行正规化的层，即 Batch Normalization 层（下文简称 Batch Norm 层），如图 6-16 所示：</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB2206546724f27f4e3cab36e1f7844191?method=download&amp;shareKey=dbcc67390e813782bacd3f838bdc90f2" alt=""><br>图 6-16　使用了 Batch Normalization 的神经网络的例子（Batch Norm 层的背景为灰色）</p>
+<p>Batch Norm，顾名思义，以进行学习时的 mini-batch 为单位，按 mini-batch 进行正规化。具体而言，就是进行使数据分布的均值为 0、方差为 1 的正规化。用数学式表示的话，如下所示。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g09j4w146ej30z00gxmy2.jpg" alt="dl_67"></p>
+<p>通过将这个处理插入到激活函数的前面（或者后面）{5[文献 [11]、文献 [12] 等中有讨论（做过实验）应该把 Batch Normalization 插入到激活函数的前面还是后面。]}，可以减小数据分布的偏向。</p>
+<p>接着，Batch Norm 层会对正规化后的数据进行缩放和平移的变换，用数学式可以如下表示。</p>
+<p>$y_i\leftarrow\gamma\hat{x}_i+\beta\quad\quad\quad\quad\quad$</p>
+<p>这里，<em>γ</em> 和 <em>β</em> 是参数。一开始 <em>γ</em> = 1，<em>β</em> = 0，然后再通过学习调整到合适的值。</p>
+<p>上面就是 Batch Norm 的算法。这个算法是神经网络上的正向传播。如果使用第 5 章介绍的计算图，Batch Norm 可以表示为图 6-17。</p>
+<p><img src="/Users/yuzhongchun/Downloads/108.png" alt="108"></p>
+<p><strong>图 6-17　Batch Normalization 的计算图（引用自文献 [13]）</strong></p>
+<p>Batch Norm 的反向传播的推导有些复杂，这里我们不进行介绍。不过如果使用图 6-17 的计算图来思考的话，Batch Norm 的反向传播或许也能比较轻松地推导出来。Frederik Kratzert 的博客“Understanding the backward pass through Batch Normalization Layer”[13] 里有详细说明。</p>
+<h3 id="Batch-Normalization-的评估"><a href="#Batch-Normalization-的评估" class="headerlink" title="Batch Normalization 的评估"></a>Batch Normalization 的评估</h3><p>现在我们使用 Batch Norm 层进行实验。首先，使用 MNIST 数据集，观察使用Batch Norm 层和不使用 Batch Norm 层时学习的过程会如何变化，如果6-18所示：</p>
+<p><img src="/Users/yuzhongchun/Downloads/109.png" alt="109"></p>
+<p><strong>图 6-18　基于 Batch Norm 的效果：使用 Batch Norm 后，学习进行得更快了</strong></p>
+<p>从图 6-18 的结果可知，使用 Batch Norm 后，学习进行得更快了。接着，给予不同的初始值尺度，观察学习的过程如何变化。图 6-19 是权重初始值的标准差为各种不同的值时的学习过程图。</p>
+<p><strong>图 6-19　图中的实线是使用了 Batch Norm 时的结果，虚线是没有使用 Batch Norm 时的结果：图的标题处标明了权重初始值的标准差</strong></p>
+<p>几乎所有的情况下都是使用 Batch Norm 时学习进行得更快。同时也可以发现，实际上，在不使用 Batch Norm 的情况下，如果不赋予一个尺度好的初始值，学习将完全无法进行。</p>
+<p>综上，通过使用 Batch Norm，可以推动学习的进行。并且，对权重初始值变得健壮（“对初始值健壮”表示不那么依赖初始值）。Batch Norm 具备了如此优良的性质，一定能应用在更多场合中。</p>
+<h2 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h2><p>机器学习的问题中，<strong>过拟合</strong>是一个很常见的问题。过拟合指的是只能拟合训练数据，但不能很好地拟合不包含在训练数据中的其他数据的状态。机器学习的目标是提高泛化能力，即便是没有包含在训练数据里的未观测数据，也希望模型可以进行正确的识别。我们可以制作复杂的、表现力强的模型，但是相应地，抑制过拟合的技巧也很重要。</p>
+<h3 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a>过拟合</h3><p>发生过拟合的原因，主要有以下两个。</p>
+<ul>
+<li>模型拥有大量参数、表现力强。</li>
+<li>训练数据少。</li>
+</ul>
+<h3 id="权值衰减"><a href="#权值衰减" class="headerlink" title="权值衰减"></a>权值衰减</h3><p>权值衰减是一直以来经常被使用的一种抑制过拟合的方法。该方法通过在学习的过程中对大的权重进行惩罚，来抑制过拟合。很多过拟合原本就是因为权重参数取值过大才发生的。</p>
+<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p>作为抑制过拟合的方法，前面我们介绍了为损失函数加上权重的 L2 范数的权值衰减方法。该方法可以简单地实现，在某种程度上能够抑制过拟合。但是，如果网络的模型变得很复杂，只用权值衰减就难以应对了。在这种情况下，我们经常会使用 Dropout [14] 方法。</p>
+<p>Dropout 是一种在学习的过程中随机删除神经元的方法。训练时，随机选出隐藏层的神经元，然后将其删除。被删除的神经元不再进行信号的传递，如图 6-22 所示。训练时，每传递一次数据，就会随机选择要删除的神经元。然后，测试时，虽然会传递所有的神经元信号，但是对于各个神经元的输出，要乘上训练时的删除比例后再输出。</p>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB8f75985c91622e3bd3daad97d5a1ffb7?method=download&amp;shareKey=5200cd20aadf706bdfb8e34b26efaa8e" alt=""></p>
+<p>图 6-22　Dropout 的概念图（引用自文献 [14]）：左边是一般的神经网络，右边是应用了 Dropout 的网络。Dropout 通过随机选择并删除神经元，停止向前传递信号</p>
+<p>通过使用 Dropout，训练数据和测试数据的识别精度的差距变小了。并且，训练数据也没有到达 100% 的识别精度。像这样，通过使用 Dropout，即便是表现力强的网络，也可以抑制过拟合。</p>
+<pre class=" language-text"><code class="language-text">机器学习中经常使用集成学习。所谓集成学习，就是让多个模型单独进行学习，推理时再取多个模型的输出的平均值。用神经网络的语境来说，比如，准备 5 个结构相同（或者类似）的网络，分别进行学习，测试时，以这 5 个网络的输出的平均值作为答案。实验告诉我们，通过进行集成学习，神经网络的识别精度可以提高好几个百分点。这个集成学习与 Dropout 有密切的关系。这是因为可以将 Dropout 理解为，通过在学习过程中随机删除神经元，从而每一次都让不同的模型进行学习。并且，推理时，通过对神经元的输出乘以删除比例（比如，0.5 等），可以取得模型的平均值。也就是说，可以理解成，Dropout将集成学习的效果（模拟地）通过一个网络实现了。
+</code></pre>
+<h2 id="超参数的验证"><a href="#超参数的验证" class="headerlink" title="超参数的验证"></a>超参数的验证</h2><p>神经网络中，除了权重和偏置等参数，超参数（hyper-parameter）也经常出现。这里所说的超参数是指，比如各层的神经元数量、batch 大小、参数更新时的学习率或权值衰减等。如果这些超参数没有设置合适的值，模型的性能就会很差。虽然超参数的取值非常重要，但是在决定超参数的过程中一般会伴随很多的试错。</p>
+<h3 id="验证数据"><a href="#验证数据" class="headerlink" title="验证数据"></a>验证数据</h3><p><strong>训练数据</strong>用于参数（权重和偏置）的学习，<strong>验证数据</strong>用于超参数的性能评估。为了确认泛化能力，要在最后使用（比较理想的是只用一次）<strong>测试数据</strong>。</p>
+<p>根据不同的数据集，有的会事先分成训练数据、验证数据、测试数据三部分，有的只分成训练数据和测试数据两部分，有的则不进行分割。在这种情况下，用户需要自行进行分割。</p>
+<h3 id="超参数的最优化"><a href="#超参数的最优化" class="headerlink" title="超参数的最优化"></a>超参数的最优化</h3><p>进行超参数的最优化时，逐渐缩小超参数的“好值”的存在范围非常重要。所谓逐渐缩小范围，是指一开始先大致设定一个范围，从这个范围中随机选出一个超参数（采样），用这个采样到的值进行识别精度的评估；然后，多次重复该操作，观察识别精度的结果，根据这个结果缩小超参数的“好值”的范围。通过重复这一操作，就可以逐渐确定超参数的合适范围。</p>
+<p>在进行神经网络的超参数的最优化时，与网格搜索等有规律的搜索相比，随机采样的搜索方式效果更好。这是因为在多个超参数中，各个超参数对最终的识别精度的影响程度不同。</p>
+<p>在超参数的最优化中，要注意的是深度学习需要很长时间（比如，几天或几周）。因此，在超参数的搜索中，需要尽早放弃那些不符合逻辑的超参数。于是，在超参数的最优化中，减少学习的 epoch，缩短一次评估所需的时间是一个不错的办法。</p>
+<p>超参数的最优化步骤：</p>
+<pre><code>步骤 0
+    设定超参数的范围
+步骤 1
+    从设定的超参数范围中随机采样
+步骤 2
+    使用步骤1中采样到的超参数的值进行学习，通过验证数据评估识别精度（但是要将 epoch 设置得很小）
+步骤 3
+    重复步骤 1 和步骤 2 (100次等)，根据它们的识别精度的结果，缩小超参数的范围。
+</code></pre><p>反复进行上述操作，不断缩小超参数的范围，在缩小到一定程度时，从该范围中选出一个超参数的值。这就是进行超参数的最优化的一种方法。</p>
+<h3 id="超参数最优化的实现"><a href="#超参数最优化的实现" class="headerlink" title="超参数最优化的实现"></a>超参数最优化的实现</h3><p>观察可以使学习顺利进行的超参数的范围，从而缩小值的范围。然后，在这个缩小的范围中重复相同的操作。这样就能缩小到合适的超参数的存在范围，然后在某个阶段，选择一个最终的超参数的值。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本章介绍神经网络学习中的几个重要技巧：参数的更新方法、权重初始值得赋值方法、Batch Normalization、Dropout等，这些都是现在神经网络中不可或缺的技术。</p>
+<ul>
+<li>参数的更新方法，除了 SGD 之外，还有 Momentum、AdaGrad、Adam等方法。</li>
+<li>权重初始值的赋值方法对进行正确的学习非常重要。</li>
+<li>作为权重初始值，Xavier 初始值、He 初始值等比较有效。</li>
+<li>通过使用 Batch Normalization，可以加速学习，并且对初始值变得健壮。</li>
+<li>抑制过拟合的正则化技术有权值衰减、Dropout等。</li>
+<li>逐渐缩小“好值”存在的范围是搜索超参数的一个有效的方法。</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="http://www.ituring.com.cn/book/1921" target="_blank" rel="noopener">深度学习入门：基于Python的理论与实现</a></li>
+</ol>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="http://yuzhongchun.com" class="b-link-green">BerMaker</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/11/16/30-dl-learning-skills-notes/" class="b-link-green">Notes-深度学习入门之与学习相关的技巧</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '21ea087c6104923ba888',
+        clientSecret: '560f45f0aefc21d726f86ee331bb04fc8660bcf6',
+        repo: 'gitalk',
+        owner: 'zhongchun',
+        admin: "zhongchun",
+        id: '2018-11-16T21-35-32',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2018/11/17/32-dl-convolutional-neural-network-notes/">
+                    <div class="card-image">
+                        
+                        <img src="/images/cnn.jpg" class="responsive-img" alt="Notes-深度学习入门之卷积神经网络">
+                        
+                        <span class="card-title">Notes-深度学习入门之卷积神经网络</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">本章的主题是卷积神经网络（Convolutional Neural Network，CNN）。CNN 被用于图像识别、语音识别等各种场合，在图像识别的比赛中，基于深度学习的方法几乎都以 CNN 为基础。
+整体结构首先，来看一下 CNN 的网</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Deep-Learning/" class="post-category" target="_blank">
+                                    Deep Learning
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Notes/" target="_blank">
+                        <span class="chip bg-color">Notes</span>
+                    </a>
+                    
+                    <a href="/tags/Deep-Learning/" target="_blank">
+                        <span class="chip bg-color">Deep Learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/11/11/29-dl-backward-propagation-algorithm-notes/">
+                    <div class="card-image">
+                        
+                        <img src="/images/bp.png" class="responsive-img" alt="Notes-深度学习入门之反向传播算法">
+                        
+                        <span class="card-title">Notes-深度学习入门之反向传播算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">上一章中，我们介绍了神经网络的学习，并通过数值微分计算了神经网络的权重参数的梯度（严格来说，是损失函数关于权重参数的梯度）。数值微分虽然简单，也容易实现，但缺点是计算上比较费时间。本章我们将学习一个能够高效计算权重参数的梯度的方法——误差反</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Deep-Learning/" class="post-category" target="_blank">
+                                    Deep Learning
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Notes/" target="_blank">
+                        <span class="chip bg-color">Notes</span>
+                    </a>
+                    
+                    <a href="/tags/Deep-Learning/" target="_blank">
+                        <span class="chip bg-color">Deep Learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: BerMaker<br />'
+            + '作者: BerMaker<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+    </div>
+    <div class="col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">77.3k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/zhongchun" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:495571751@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

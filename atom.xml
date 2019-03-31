@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>BerMaker</title>
+  
+  <subtitle>Do harder, be better.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yuzhongchun.com/"/>
+  <updated>2019-03-31T02:45:31.135Z</updated>
+  <id>http://yuzhongchun.com/</id>
+  
+  <author>
+    <name>BerMaker</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>不连续00和111问题</title>
+    <link href="http://yuzhongchun.com/2019/03/31/1-interview-00-111/"/>
+    <id>http://yuzhongchun.com/2019/03/31/1-interview-00-111/</id>
+    <published>2019-03-31T02:28:36.000Z</published>
+    <updated>2019-03-31T02:45:31.135Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h2&gt;&lt;pre class=&quot; language-text&quot;&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="Interview" scheme="http://yuzhongchun.com/categories/Interview/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java 使用 protobuf</title>
+    <link href="http://yuzhongchun.com/2019/01/31/40-java-protobuf/"/>
+    <id>http://yuzhongchun.com/2019/01/31/40-java-protobuf/</id>
+    <published>2019-01-31T05:05:08.000Z</published>
+    <updated>2019-03-31T02:39:46.709Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;Protocol buffers are Google’s language-neutral, platform-neutral,
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yuzhongchun.com/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://yuzhongchun.com/tags/Java/"/>
+    
+      <category term="Protobuf" scheme="http://yuzhongchun.com/tags/Protobuf/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hands-on-ML Classification</title>
+    <link href="http://yuzhongchun.com/2018/12/09/39-classification-hands-on-machine-learning-notes/"/>
+    <id>http://yuzhongchun.com/2018/12/09/39-classification-hands-on-machine-learning-notes/</id>
+    <published>2018-12-09T06:41:26.000Z</published>
+    <updated>2019-03-31T02:39:46.708Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;In Chapter 1 we mentioned that the most common supervised learning tasks are regression (predicting values) and classification
+        
+      
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/categories/Machine-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/tags/Machine-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hands-on-ML End-to-End Machine Learning Project</title>
+    <link href="http://yuzhongchun.com/2018/12/08/38-end-to-end-machine-learning-project-hands-on-mahcine-learning-notes/"/>
+    <id>http://yuzhongchun.com/2018/12/08/38-end-to-end-machine-learning-project-hands-on-mahcine-learning-notes/</id>
+    <published>2018-12-08T14:43:16.000Z</published>
+    <updated>2019-03-31T02:39:46.708Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;End-to-End-Machine-Learning-Project&quot;&gt;&lt;a href=&quot;#End-to-End-Machine-Learning-Project&quot; class=&quot;headerlink&quot; title=&quot;End-to-End Machine
+        
+      
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/categories/Machine-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/tags/Machine-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hands-on-ML The Machine Learning Landscape</title>
+    <link href="http://yuzhongchun.com/2018/12/02/37-the-machine-learning-landscape-hands-on-machine-leanring-notes/"/>
+    <id>http://yuzhongchun.com/2018/12/02/37-the-machine-learning-landscape-hands-on-machine-leanring-notes/</id>
+    <published>2018-12-02T14:33:06.000Z</published>
+    <updated>2019-03-31T02:39:46.708Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Where does Machine Learning start and where does it end? What exactly does it mean for a machine to learn something? &lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/categories/Machine-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/tags/Machine-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Titanic Machine Learning from Disaster</title>
+    <link href="http://yuzhongchun.com/2018/12/01/36-titanic-machine-learning-from-disaster/"/>
+    <id>http://yuzhongchun.com/2018/12/01/36-titanic-machine-learning-from-disaster/</id>
+    <published>2018-12-01T07:32:01.000Z</published>
+    <updated>2019-03-31T02:39:46.708Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;The sinking of the RMS Titanic is one of the most infamous shipwrecks in history.  On April 15, 1912, during her maiden voyage, the
+        
+      
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/categories/Machine-Learning/"/>
+    
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/tags/Machine-Learning/"/>
+    
+      <category term="Python" scheme="http://yuzhongchun.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hands-on-ML Outline</title>
+    <link href="http://yuzhongchun.com/2018/11/25/35-outline-hands-on-machine-leanring-notes/"/>
+    <id>http://yuzhongchun.com/2018/11/25/35-outline-hands-on-machine-leanring-notes/</id>
+    <published>2018-11-25T12:48:06.000Z</published>
+    <updated>2019-03-31T02:39:46.707Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Content&quot;&gt;&lt;a href=&quot;#Content&quot; class=&quot;headerlink&quot; title=&quot;Content&quot;&gt;&lt;/a&gt;Content&lt;/h2&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/categories/Machine-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/tags/Machine-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>A Small End-to-End Project</title>
+    <link href="http://yuzhongchun.com/2018/11/24/34-a-small-project/"/>
+    <id>http://yuzhongchun.com/2018/11/24/34-a-small-project/</id>
+    <published>2018-11-24T10:00:03.000Z</published>
+    <updated>2019-03-31T02:39:46.707Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Books and courses are frustrating. They give you lots of recipes and snippets, but you never get to see how they all fit
+        
+      
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/categories/Machine-Learning/"/>
+    
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/tags/Machine-Learning/"/>
+    
+      <category term="Python" scheme="http://yuzhongchun.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes-深度学习入门之深度学习</title>
+    <link href="http://yuzhongchun.com/2018/11/22/33-dl-deep-learning-notes/"/>
+    <id>http://yuzhongchun.com/2018/11/22/33-dl-deep-learning-notes/</id>
+    <published>2018-11-22T13:35:32.000Z</published>
+    <updated>2019-03-31T02:39:46.707Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;深度学习是加深了层的深度神经网络。基于之前介绍的网络，只需通过叠加层，就可以创建深度网络。本章我们将看一下深度学习的性质、课题和可能性，然后对当前的深度学习进行概括性的说明。&lt;/p&gt;
+&lt;h2 id=&quot;加深网络&quot;&gt;&lt;a href=&quot;#加深网络&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/categories/Deep-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/tags/Deep-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes-深度学习入门之卷积神经网络</title>
+    <link href="http://yuzhongchun.com/2018/11/17/32-dl-convolutional-neural-network-notes/"/>
+    <id>http://yuzhongchun.com/2018/11/17/32-dl-convolutional-neural-network-notes/</id>
+    <published>2018-11-17T14:38:12.000Z</published>
+    <updated>2019-03-31T02:39:46.707Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本章的主题是卷积神经网络（Convolutional Neural Network，CNN）。CNN 被用于图像识别、语音识别等各种场合，在图像识别的比赛中，基于深度学习的方法几乎都以 CNN 为基础。&lt;/p&gt;
+&lt;h2 id=&quot;整体结构&quot;&gt;&lt;a href=&quot;#整体结构&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/categories/Deep-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/tags/Deep-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes-深度学习入门之与学习相关的技巧</title>
+    <link href="http://yuzhongchun.com/2018/11/16/30-dl-learning-skills-notes/"/>
+    <id>http://yuzhongchun.com/2018/11/16/30-dl-learning-skills-notes/</id>
+    <published>2018-11-16T13:35:32.000Z</published>
+    <updated>2019-03-31T02:39:46.706Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本章将介绍神经网络的学习中的一些重要观点，主题涉及&lt;strong&gt;寻找最优权重参数的最优化方法&lt;/strong&gt;、&lt;strong&gt;权重参数的初始值&lt;/strong&gt;、&lt;strong&gt;超参数的设定方法&lt;/strong&gt;等。此外，为了应对过拟合，本章还将介绍权值衰减、Dropo
+        
+      
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/categories/Deep-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/tags/Deep-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes-深度学习入门之反向传播算法</title>
+    <link href="http://yuzhongchun.com/2018/11/11/29-dl-backward-propagation-algorithm-notes/"/>
+    <id>http://yuzhongchun.com/2018/11/11/29-dl-backward-propagation-algorithm-notes/</id>
+    <published>2018-11-11T06:35:32.000Z</published>
+    <updated>2019-03-31T02:39:46.706Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;上一章中，我们介绍了神经网络的学习，并通过数值微分计算了神经网络的权重参数的梯度（严格来说，是损失函数关于权重参数的梯度）。数值微分虽然简单，也容易实现，但&lt;strong&gt;缺点&lt;/strong&gt;是计算上比较费时间。本章我们将学习一个能够高效计算权重参数的梯度的方法——误差反
+        
+      
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/categories/Deep-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/tags/Deep-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Machine Learning Guide</title>
+    <link href="http://yuzhongchun.com/2018/11/10/31-machine-learning-guide/"/>
+    <id>http://yuzhongchun.com/2018/11/10/31-machine-learning-guide/</id>
+    <published>2018-11-10T10:36:03.000Z</published>
+    <updated>2019-03-31T02:39:46.707Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Machine learning is a subset of artificial intelligence in the field of computer science that often uses statistical techniques to give
+        
+      
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/categories/Machine-Learning/"/>
+    
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/tags/Machine-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes-深度学习入门之神经网络的学习</title>
+    <link href="http://yuzhongchun.com/2018/11/09/28-dl-neural-networks-learning-notes/"/>
+    <id>http://yuzhongchun.com/2018/11/09/28-dl-neural-networks-learning-notes/</id>
+    <published>2018-11-09T06:35:32.000Z</published>
+    <updated>2019-03-31T02:39:46.706Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;神经网络的学习是指从训练数据中自动获取最优权重参数的过程。为了使神经网络能进行学习，将导入损失函数这一指标。而学习的目的就是以该损失函数为基准，找出能使它的值达到最小的权重参数。&lt;/p&gt;
+&lt;h2 id=&quot;从数据中学习&quot;&gt;&lt;a href=&quot;#从数据中学习&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/categories/Deep-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/tags/Deep-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes-深度学习入门之神经网络</title>
+    <link href="http://yuzhongchun.com/2018/11/07/27-dl-neural-networks-notes/"/>
+    <id>http://yuzhongchun.com/2018/11/07/27-dl-neural-networks-notes/</id>
+    <published>2018-11-07T12:15:31.000Z</published>
+    <updated>2019-03-31T02:39:46.706Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;上一章我们学习了感知机。关于感知机，既有好消息，也有坏消息。好消息是，即便对于复杂的函数，感知机也隐含着能够表示它的可能性。上一章已经介绍过，即便是计算机进行的复杂处理，感知机（理论上）也可以将其表示出来。坏消息是，设定权重的工作，即确定合适的、能符合预期的输入与输出的权重
+        
+      
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/categories/Deep-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/tags/Deep-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes-深度学习入门之感知机</title>
+    <link href="http://yuzhongchun.com/2018/11/05/26-dl-perceptron-notes/"/>
+    <id>http://yuzhongchun.com/2018/11/05/26-dl-perceptron-notes/</id>
+    <published>2018-11-05T13:25:01.000Z</published>
+    <updated>2019-03-31T02:39:46.705Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本章将介绍感知机(严格地讲，本章中所说的感知机应该称为“人工神经元”或“朴素感知机”，但是因为很多基本的处理都是共通的，所以这里就简单地称为“感知机”。)&lt;br&gt;（perceptron）这一算法。感知机是由美国学者 Frank Rosenblatt 在 1957
+        
+      
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/categories/Deep-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/tags/Deep-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes-深度学习入门之Python基础</title>
+    <link href="http://yuzhongchun.com/2018/11/04/25-dl-python-basics-notes/"/>
+    <id>http://yuzhongchun.com/2018/11/04/25-dl-python-basics-notes/</id>
+    <published>2018-11-04T12:35:08.000Z</published>
+    <updated>2019-03-31T02:39:46.705Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;简单介绍了 python 的基本语法，初步介绍了 NumPy（线性代数矩阵和数组），Matplotlib（绘制图形）库的基本使用。&lt;/p&gt;
+&lt;h2 id=&quot;基本用法&quot;&gt;&lt;a href=&quot;#基本用法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/categories/Deep-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/tags/Deep-Learning/"/>
+    
+      <category term="Python" scheme="http://yuzhongchun.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python机器学习开发环境</title>
+    <link href="http://yuzhongchun.com/2018/11/04/24-python-machine-learning-env/"/>
+    <id>http://yuzhongchun.com/2018/11/04/24-python-machine-learning-env/</id>
+    <published>2018-11-04T12:03:08.000Z</published>
+    <updated>2019-03-31T02:39:46.705Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Python是著名的“龟叔”Guido van
+        
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yuzhongchun.com/categories/Python/"/>
+    
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/tags/Machine-Learning/"/>
+    
+      <category term="Python" scheme="http://yuzhongchun.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Notes-深度学习入门之总览</title>
+    <link href="http://yuzhongchun.com/2018/11/04/23-dl-introduction-notes/"/>
+    <id>http://yuzhongchun.com/2018/11/04/23-dl-introduction-notes/</id>
+    <published>2018-11-04T07:05:08.000Z</published>
+    <updated>2019-03-31T02:39:46.705Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;深度学习入门：基于Python的理论和实现&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/categories/Deep-Learning/"/>
+    
+    
+      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
+    
+      <category term="Deep Learning" scheme="http://yuzhongchun.com/tags/Deep-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>统计学习方法概论</title>
+    <link href="http://yuzhongchun.com/2018/11/03/21-statistics-learning-methods/"/>
+    <id>http://yuzhongchun.com/2018/11/03/21-statistics-learning-methods/</id>
+    <published>2018-11-03T11:13:16.000Z</published>
+    <updated>2019-03-31T02:39:46.704Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;统计学习(statistical learning)是关于计算机基于数据构建概率统计模型并运用模型对数据进行预测与分析的一门学科。&lt;br&gt;统计学习也称为统计机器学习(statistical machine learning)。&lt;br&gt;赫尔伯特·西蒙(Herbert A. Simon)曾对“学习”以下定义：如果一个系统能够通过执行某个过程改进它的性能，这就是学习。&lt;br&gt;按照这一观点，统计学习就是计算机系统通过运用数据及统计方法提供系统性能的机器学习。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/categories/Machine-Learning/"/>
+    
+    
+      <category term="Machine Learning" scheme="http://yuzhongchun.com/tags/Machine-Learning/"/>
+    
+      <category term="Statistics" scheme="http://yuzhongchun.com/tags/Statistics/"/>
+    
+      <category term="Data Mining" scheme="http://yuzhongchun.com/tags/Data-Mining/"/>
+    
+  </entry>
+  
+</feed>
