@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yuzhongchun.com/2019/06/23/2-ray-env/</loc>
+    <loc>http://yuzhongchun.com/2019/06/23/1-ray-introduction/</loc>
     
-    <lastmod>2019-06-23T08:51:26.668Z</lastmod>
+    <lastmod>2019-06-23T08:55:19.872Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2019/06/23/1-ray-introduction/</loc>
+    <loc>http://yuzhongchun.com/2019/06/23/2-ray-env/</loc>
     
-    <lastmod>2019-06-23T08:49:10.301Z</lastmod>
+    <lastmod>2019-06-23T08:51:26.668Z</lastmod>
     
   </url>
   
@@ -79,14 +79,14 @@
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2018/10/14/3-kafka-basic-use/</loc>
+    <loc>http://yuzhongchun.com/2018/12/09/39-classification-hands-on-machine-learning-notes/</loc>
     
     <lastmod>2019-03-31T02:39:46.708Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2018/12/09/39-classification-hands-on-machine-learning-notes/</loc>
+    <loc>http://yuzhongchun.com/2018/10/14/3-kafka-basic-use/</loc>
     
     <lastmod>2019-03-31T02:39:46.708Z</lastmod>
     
@@ -191,14 +191,14 @@
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2018/11/04/25-dl-python-basics-notes/</loc>
+    <loc>http://yuzhongchun.com/2018/11/04/24-python-machine-learning-env/</loc>
     
     <lastmod>2019-03-31T02:39:46.705Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2018/11/04/24-python-machine-learning-env/</loc>
+    <loc>http://yuzhongchun.com/2018/11/04/25-dl-python-basics-notes/</loc>
     
     <lastmod>2019-03-31T02:39:46.705Z</lastmod>
     
@@ -212,13 +212,6 @@
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2018/10/12/1-logstash-introduction/</loc>
-    
-    <lastmod>2019-03-31T02:39:46.704Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yuzhongchun.com/2018/10/29/18-java-gc/</loc>
     
     <lastmod>2019-03-31T02:39:46.704Z</lastmod>
@@ -227,6 +220,13 @@
   
   <url>
     <loc>http://yuzhongchun.com/2018/11/01/19-linux-c-development/</loc>
+    
+    <lastmod>2019-03-31T02:39:46.704Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yuzhongchun.com/2018/10/12/1-logstash-introduction/</loc>
     
     <lastmod>2019-03-31T02:39:46.704Z</lastmod>
     
