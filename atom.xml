@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yuzhongchun.com/"/>
-  <updated>2019-03-31T03:00:14.612Z</updated>
+  <updated>2019-06-23T08:51:26.668Z</updated>
   <id>http://yuzhongchun.com/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ray 换件搭建和示例</title>
+    <link href="http://yuzhongchun.com/2019/06/23/2-ray-env/"/>
+    <id>http://yuzhongchun.com/2019/06/23/2-ray-env/</id>
+    <published>2019-06-23T08:50:20.000Z</published>
+    <updated>2019-06-23T08:51:26.668Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Ray-环境搭建和示例&quot;&gt;&lt;a href=&quot;#Ray-环境搭建和示例&quot; class=&quot;headerlink&quot; title=&quot;Ray 环境搭建和示例&quot;&gt;&lt;/a&gt;Ray 环境搭建和示例&lt;/h1&gt;&lt;h2 id=&quot;Ray-环境设置&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="BigData" scheme="http://yuzhongchun.com/categories/BigData/"/>
+    
+      <category term="Ray" scheme="http://yuzhongchun.com/categories/BigData/Ray/"/>
+    
+    
+      <category term="Ray" scheme="http://yuzhongchun.com/tags/Ray/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ray 简介</title>
+    <link href="http://yuzhongchun.com/2019/06/23/1-ray-introduction/"/>
+    <id>http://yuzhongchun.com/2019/06/23/1-ray-introduction/</id>
+    <published>2019-06-23T08:44:16.000Z</published>
+    <updated>2019-06-23T08:49:10.301Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Ray&quot;&gt;&lt;a href=&quot;#Ray&quot; class=&quot;headerlink&quot; title=&quot;Ray&quot;&gt;&lt;/a&gt;Ray&lt;/h2&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="BigData" scheme="http://yuzhongchun.com/categories/BigData/"/>
+    
+      <category term="Ray" scheme="http://yuzhongchun.com/categories/BigData/Ray/"/>
+    
+    
+      <category term="Ray" scheme="http://yuzhongchun.com/tags/Ray/"/>
+    
+  </entry>
   
   <entry>
     <title>不连续00和111问题</title>
@@ -520,58 +576,6 @@
       <category term="Machine Learning" scheme="http://yuzhongchun.com/tags/Machine-Learning/"/>
     
       <category term="Python" scheme="http://yuzhongchun.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notes-深度学习入门之总览</title>
-    <link href="http://yuzhongchun.com/2018/11/04/23-dl-introduction-notes/"/>
-    <id>http://yuzhongchun.com/2018/11/04/23-dl-introduction-notes/</id>
-    <published>2018-11-04T07:05:08.000Z</published>
-    <updated>2019-03-31T02:39:46.705Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;深度学习入门：基于Python的理论和实现&lt;br&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="Deep Learning" scheme="http://yuzhongchun.com/categories/Deep-Learning/"/>
-    
-    
-      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
-    
-      <category term="Deep Learning" scheme="http://yuzhongchun.com/tags/Deep-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>统计学习方法概论</title>
-    <link href="http://yuzhongchun.com/2018/11/03/21-statistics-learning-methods/"/>
-    <id>http://yuzhongchun.com/2018/11/03/21-statistics-learning-methods/</id>
-    <published>2018-11-03T11:13:16.000Z</published>
-    <updated>2019-03-31T02:39:46.704Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;统计学习(statistical learning)是关于计算机基于数据构建概率统计模型并运用模型对数据进行预测与分析的一门学科。&lt;br&gt;统计学习也称为统计机器学习(statistical machine learning)。&lt;br&gt;赫尔伯特·西蒙(Herbert A. Simon)曾对“学习”以下定义：如果一个系统能够通过执行某个过程改进它的性能，这就是学习。&lt;br&gt;按照这一观点，统计学习就是计算机系统通过运用数据及统计方法提供系统性能的机器学习。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://yuzhongchun.com/categories/Machine-Learning/"/>
-    
-    
-      <category term="Machine Learning" scheme="http://yuzhongchun.com/tags/Machine-Learning/"/>
-    
-      <category term="Statistics" scheme="http://yuzhongchun.com/tags/Statistics/"/>
-    
-      <category term="Data Mining" scheme="http://yuzhongchun.com/tags/Data-Mining/"/>
     
   </entry>
   

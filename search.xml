@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>Ray 换件搭建和示例</title>
+      <link href="/2019/06/23/2-ray-env/"/>
+      <url>/2019/06/23/2-ray-env/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Ray-环境搭建和示例"><a href="#Ray-环境搭建和示例" class="headerlink" title="Ray 环境搭建和示例"></a>Ray 环境搭建和示例</h1><h2 id="Ray-环境设置"><a href="#Ray-环境设置" class="headerlink" title="Ray 环境设置"></a>Ray 环境设置</h2><p>本次实验采用 2 台 Mac，系统 macOS Mojave Version 10.14.3。</p><h3 id="安装-Python-3"><a href="#安装-Python-3" class="headerlink" title="安装 Python 3"></a>安装 Python 3</h3><pre class=" language-python"><code class="language-python">brew install python</code></pre><h3 id="安装-Python-虚拟环境"><a href="#安装-Python-虚拟环境" class="headerlink" title="安装 Python 虚拟环境"></a>安装 Python 虚拟环境</h3><pre class=" language-python"><code class="language-python">pip3 install virtualenvcd <span class="token operator">~</span><span class="token operator">/</span>Toolsvirtualenv <span class="token operator">-</span>p <span class="token operator">/</span>usr<span class="token operator">/</span>local<span class="token operator">/</span>bin<span class="token operator">/</span>python3 git_ray_envsource <span class="token punctuation">.</span><span class="token operator">/</span>git_ray<span class="token operator">/</span>env<span class="token operator">/</span>bin<span class="token operator">/</span>active    </code></pre><p>然后，查看虚拟环境 Python 的版本</p><pre class=" language-python"><code class="language-python">$ python <span class="token operator">-</span>VPython <span class="token number">3.7</span><span class="token punctuation">.</span><span class="token number">3</span></code></pre><p>注意：确保两台机器 Python 版本一致。</p><h3 id="安装-Ray"><a href="#安装-Ray" class="headerlink" title="安装 Ray"></a>安装 Ray</h3><pre class=" language-python"><code class="language-python">pip install ray</code></pre><p>Ray 的版本是 0.7.0</p><h3 id="以-Cluster-模式运行-Ray"><a href="#以-Cluster-模式运行-Ray" class="headerlink" title="以 Cluster 模式运行 Ray"></a>以 Cluster 模式运行 Ray</h3><p>两台机器IP分别为：<code>192.168.1.6</code> 和 <code>192.168.1.9</code></p><p><code>192.168.1.6</code> 作为 Head，另一台作为 Node。</p><p>在 Head 机器上执行：</p><pre class=" language-shell"><code class="language-shell">ray start --head --redis-port=6379</code></pre><p>启动输入如下：</p><pre class=" language-tex"><code class="language-tex">2019-06-23 15:04:18,601    INFO scripts.py:289 -- Using IP address 192.168.1.6 for this node.2019-06-23 15:04:18,602    INFO node.py:497 -- Process STDOUT and STDERR is being redirected to /tmp/ray/session_2019-06-23_15-04-18_601521_88785/logs.2019-06-23 15:04:18,710    INFO services.py:409 -- Waiting for redis server at 127.0.0.1:6379 to respond...2019-06-23 15:04:18,835    INFO services.py:409 -- Waiting for redis server at 127.0.0.1:25445 to respond...2019-06-23 15:04:18,840    INFO services.py:806 -- Starting Redis shard with 3.44 GB max memory.2019-06-23 15:04:18,855    INFO node.py:511 -- Process STDOUT and STDERR is being redirected to /tmp/ray/session_2019-06-23_15-04-18_601521_88785/logs.2019-06-23 15:04:18,856    INFO services.py:1441 -- Starting the Plasma object store with 5.15 GB memory using /tmp.2019-06-23 15:04:18,877    INFO scripts.py:319 --Started Ray on this node. You can add additional nodes to the cluster by calling    ray start --redis-address 192.168.1.6:6379from the node you wish to add. You can connect a driver to the cluster from Python by running    import ray    ray.init(redis_address="192.168.1.6:6379")If you have trouble connecting from a different machine, check that your firewall is configured properly. If you wish to terminate the processes that have been started, run    ray stop</code></pre><p>在 Node 机器上执行：</p><pre class=" language-shell"><code class="language-shell">ray start --redis-address=192.168.1.6:6379</code></pre><p>启动输入如下：</p><pre><code>2019-06-23 15:08:37,474    INFO services.py:409 -- Waiting for redis server at 192.168.1.6:6379 to respond...2019-06-23 15:08:37,503    INFO scripts.py:363 -- Using IP address 192.168.1.9 for this node.2019-06-23 15:08:37,551    INFO node.py:511 -- Process STDOUT and STDERR is being redirected to /tmp/ray/session_2019-06-23_15-04-18_601521_88785/logs.2019-06-23 15:08:37,551    INFO services.py:1441 -- Starting the Plasma object store with 5.15 GB memory using /tmp.2019-06-23 15:08:37,566    INFO scripts.py:371 --Started Ray on this node. If you wish to terminate the processes that have been started, run    ray stop</code></pre><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>hello_world.py</p><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> rayray<span class="token punctuation">.</span>init<span class="token punctuation">(</span>redis_address<span class="token operator">=</span><span class="token string">"192.168.1.6:6379"</span><span class="token punctuation">)</span>@ray<span class="token punctuation">.</span>remote<span class="token keyword">def</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">return</span> <span class="token string">"Hello"</span>@ray<span class="token punctuation">.</span>remote<span class="token keyword">def</span> <span class="token function">world</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">return</span> <span class="token string">"world!"</span>@ray<span class="token punctuation">.</span>remote<span class="token keyword">def</span> <span class="token function">hello_world</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">return</span> a <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> ba_id <span class="token operator">=</span> hello<span class="token punctuation">.</span>remote<span class="token punctuation">(</span><span class="token punctuation">)</span>b_id <span class="token operator">=</span> world<span class="token punctuation">.</span>remote<span class="token punctuation">(</span><span class="token punctuation">)</span>c_id <span class="token operator">=</span> hello_world<span class="token punctuation">.</span>remote<span class="token punctuation">(</span>a_id<span class="token punctuation">,</span> b_id<span class="token punctuation">)</span>hello <span class="token operator">=</span> ray<span class="token punctuation">.</span>get<span class="token punctuation">(</span>c_id<span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>hello<span class="token punctuation">)</span></code></pre><p>运行：python hello_world.py</p><p>输出：</p><pre><code>Hello world!</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li>[<a href="https://blog.csdn.net/Uwr44UOuQcNsUQb60zk2/article/details/79029868" target="_blank" rel="noopener">https://blog.csdn.net/Uwr44UOuQcNsUQb60zk2/article/details/79029868</a>)</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> BigData </category>
+          
+          <category> Ray </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ray </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ray 简介</title>
+      <link href="/2019/06/23/1-ray-introduction/"/>
+      <url>/2019/06/23/1-ray-introduction/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Ray"><a href="#Ray" class="headerlink" title="Ray"></a>Ray</h2><p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g4b55jhqjlj32nx0u0mzj.jpg" alt="ray_header_logo"></p><p><a href="https://rise.cs.berkeley.edu/projects/ray/" target="_blank" rel="noopener">Ray</a> 是 <a href="https://rise.cs.berkeley.edu/" target="_blank" rel="noopener">UC Berkeley riseLab</a> (前身是开发 Spark/Mesos 等的AMPLab实验室) 针对机器学习领域开发的一种新的分布式计算框架。</p><p>Ray 是一个面向大规模机器学习和增强学习应用的高性能分布式执行框架。它通过在全局控制存储中抽象系统的控制状态并使所有其他组件保持无状态来实现可伸缩性和容错性。它使用共享内存分布式对象存储，通过共享内存来高效处理大数据，并使用自下而上的分层调度架构来实现低延迟和高吞吐量调度。它使用基于动态任务图和 actor 的轻量级API，以灵活的方式表达各种应用程序。</p><h2 id="Meetup"><a href="#Meetup" class="headerlink" title="Meetup"></a>Meetup</h2><p>2019.06.22 蚂蚁金服在北京举办了一场名为《下一代计算》的meetup，邀请到了Spark和Ray的核心贡献者，加州大学伯克利分校RISE实验室（前身为AMP实验室）的主管教授<a href="https://people.eecs.berkeley.edu/~istoica/" target="_blank" rel="noopener">Ion Stoica</a>。Ion 教授做了一场《Ray: Past, Present and Future》的分享。</p><p>下图是现场的照片：</p><p><img src="http://ww3.sinaimg.cn/large/006tNc79ly1g4b5d14obyj30sg0lctce.jpg" alt="Ion Stoica Ray prentation"></p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><a href="https://rise.cs.berkeley.edu/projects/ray/" target="_blank" rel="noopener">rise lab</a></li><li><a href="https://github.com/ray-project/ray" target="_blank" rel="noopener">Ray GitHub</a></li><li><a href="https://ray.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener">Ray Docs</a></li><li><a href="https://arxiv.org/abs/1712.05889" target="_blank" rel="noopener">Ray 论文：Ray: A Distributed Framework for Emerging AI Applications</a></li><li><a href="https://arxiv.org/abs/1703.03924" target="_blank" rel="noopener">Ray 论文：Real-Time Machine Learning: The Missing Pieces</a></li><li><a href="https://www.oreilly.com/ideas/ray-a-distributed-execution-framework-for-emerging-ai-applications" target="_blank" rel="noopener">Michael Jordan介 绍 Ray 的视频</a></li><li><a href="https://ray-project.github.io/" target="_blank" rel="noopener">Ray Blog</a></li><li><a href="https://rise.cs.berkeley.edu/blog/pandas-on-ray/" target="_blank" rel="noopener">Ray 作者博客</a></li><li><a href="https://bair.berkeley.edu/blog/2018/01/09/ray/" target="_blank" rel="noopener">Ray: A Distributed System for AI</a></li><li><a href="https://www.jianshu.com/p/a5f8665d84ff" target="_blank" rel="noopener"></a></li><li><a href="https://blog.csdn.net/Uwr44UOuQcNsUQb60zk2/article/details/79029868" target="_blank" rel="noopener">伯克利AI分布式框架Ray，兼容TensorFlow、PyTorch与MXNet</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> BigData </category>
+          
+          <category> Ray </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ray </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>不连续00和111问题</title>
       <link href="/2019/03/31/1-interview-00-111/"/>
       <url>/2019/03/31/1-interview-00-111/</url>
