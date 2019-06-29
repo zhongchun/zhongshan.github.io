@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yuzhongchun.com/2019/06/23/2-ray-env/</loc>
+    <loc>http://yuzhongchun.com/2019/06/23/1-ray-introduction/</loc>
     
-    <lastmod>2019-06-29T08:15:40.405Z</lastmod>
+    <lastmod>2019-06-29T08:29:57.076Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2019/06/23/1-ray-introduction/</loc>
+    <loc>http://yuzhongchun.com/2019/06/23/2-ray-env/</loc>
     
-    <lastmod>2019-06-23T14:02:34.637Z</lastmod>
+    <lastmod>2019-06-29T08:15:40.405Z</lastmod>
     
   </url>
   
@@ -51,14 +51,14 @@
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2018/10/18/6-java-log/</loc>
+    <loc>http://yuzhongchun.com/2018/10/16/5-mongodb-shell/</loc>
     
     <lastmod>2019-03-31T02:39:46.709Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2018/10/16/5-mongodb-shell/</loc>
+    <loc>http://yuzhongchun.com/2018/10/18/6-java-log/</loc>
     
     <lastmod>2019-03-31T02:39:46.709Z</lastmod>
     
@@ -114,14 +114,14 @@
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2018/11/25/35-outline-hands-on-machine-leanring-notes/</loc>
+    <loc>http://yuzhongchun.com/2018/11/24/34-a-small-project/</loc>
     
     <lastmod>2019-03-31T02:39:46.707Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2018/11/24/34-a-small-project/</loc>
+    <loc>http://yuzhongchun.com/2018/11/25/35-outline-hands-on-machine-leanring-notes/</loc>
     
     <lastmod>2019-03-31T02:39:46.707Z</lastmod>
     
@@ -191,13 +191,6 @@
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2018/11/04/25-dl-python-basics-notes/</loc>
-    
-    <lastmod>2019-03-31T02:39:46.705Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yuzhongchun.com/2018/11/04/24-python-machine-learning-env/</loc>
     
     <lastmod>2019-03-31T02:39:46.705Z</lastmod>
@@ -206,6 +199,13 @@
   
   <url>
     <loc>http://yuzhongchun.com/2018/11/05/26-dl-perceptron-notes/</loc>
+    
+    <lastmod>2019-03-31T02:39:46.705Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yuzhongchun.com/2018/11/04/25-dl-python-basics-notes/</loc>
     
     <lastmod>2019-03-31T02:39:46.705Z</lastmod>
     
@@ -289,14 +289,14 @@
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2018/10/20/10-log4j2/</loc>
+    <loc>http://yuzhongchun.com/2018/10/24/13-java-annotation/</loc>
     
     <lastmod>2019-03-31T02:39:46.703Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yuzhongchun.com/2018/10/24/13-java-annotation/</loc>
+    <loc>http://yuzhongchun.com/2018/10/20/10-log4j2/</loc>
     
     <lastmod>2019-03-31T02:39:46.703Z</lastmod>
     
