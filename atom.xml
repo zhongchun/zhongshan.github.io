@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yuzhongchun.com/"/>
-  <updated>2019-06-30T08:41:45.329Z</updated>
+  <updated>2019-07-28T09:18:37.289Z</updated>
   <id>http://yuzhongchun.com/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flink Introduction</title>
+    <link href="http://yuzhongchun.com/2019/07/28/1-flink-introduction/"/>
+    <id>http://yuzhongchun.com/2019/07/28/1-flink-introduction/</id>
+    <published>2019-07-28T09:18:16.000Z</published>
+    <updated>2019-07-28T09:18:37.289Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;What-is-Flink&quot;&gt;&lt;a href=&quot;#What-is-Flink&quot; class=&quot;headerlink&quot; title=&quot;What is Flink&quot;&gt;&lt;/a&gt;What is Flink&lt;/h2&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="BigData" scheme="http://yuzhongchun.com/categories/BigData/"/>
+    
+      <category term="Flink" scheme="http://yuzhongchun.com/categories/BigData/Flink/"/>
+    
+    
+      <category term="Flink" scheme="http://yuzhongchun.com/tags/Flink/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Flink Basic Use</title>
+    <link href="http://yuzhongchun.com/2019/07/28/2-flink-basic-use/"/>
+    <id>http://yuzhongchun.com/2019/07/28/2-flink-basic-use/</id>
+    <published>2019-07-28T09:18:16.000Z</published>
+    <updated>2019-07-28T09:19:42.634Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;Environment: macOS Mojave Version 10.14.3&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Install-flink&quot;&gt;&lt;a href=&quot;#Install-flink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="BigData" scheme="http://yuzhongchun.com/categories/BigData/"/>
+    
+      <category term="Flink" scheme="http://yuzhongchun.com/categories/BigData/Flink/"/>
+    
+    
+      <category term="Flink" scheme="http://yuzhongchun.com/tags/Flink/"/>
+    
+  </entry>
   
   <entry>
     <title>Ray 环境搭建和示例</title>
@@ -517,65 +576,6 @@
       <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
     
       <category term="Deep Learning" scheme="http://yuzhongchun.com/tags/Deep-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notes-深度学习入门之Python基础</title>
-    <link href="http://yuzhongchun.com/2018/11/04/25-dl-python-basics-notes/"/>
-    <id>http://yuzhongchun.com/2018/11/04/25-dl-python-basics-notes/</id>
-    <published>2018-11-04T12:35:08.000Z</published>
-    <updated>2019-03-31T02:39:46.705Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;简单介绍了 python 的基本语法，初步介绍了 NumPy（线性代数矩阵和数组），Matplotlib（绘制图形）库的基本使用。&lt;/p&gt;
-&lt;h2 id=&quot;基本用法&quot;&gt;&lt;a href=&quot;#基本用法&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Deep Learning" scheme="http://yuzhongchun.com/categories/Deep-Learning/"/>
-    
-    
-      <category term="Notes" scheme="http://yuzhongchun.com/tags/Notes/"/>
-    
-      <category term="Deep Learning" scheme="http://yuzhongchun.com/tags/Deep-Learning/"/>
-    
-      <category term="Python" scheme="http://yuzhongchun.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python机器学习开发环境</title>
-    <link href="http://yuzhongchun.com/2018/11/04/24-python-machine-learning-env/"/>
-    <id>http://yuzhongchun.com/2018/11/04/24-python-machine-learning-env/</id>
-    <published>2018-11-04T12:03:08.000Z</published>
-    <updated>2019-03-31T02:39:46.705Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Python是著名的“龟叔”Guido van
-        
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="http://yuzhongchun.com/categories/Python/"/>
-    
-    
-      <category term="Machine Learning" scheme="http://yuzhongchun.com/tags/Machine-Learning/"/>
-    
-      <category term="Python" scheme="http://yuzhongchun.com/tags/Python/"/>
     
   </entry>
   
